@@ -1,0 +1,93 @@
+//Sejam as seguintes matrizes de números inteiros: matA3x4, matB3x4 e matC4x3, faça um algoritmo que permita:
+//a. ler e armazenar os valores de cada matriz;
+//b. calcular e mostrar: (crie uma matriz para armazenar o resultado de cada operação)
+//i. matA3x4 + matB3x4
+//ii. matA3x4 - matB3x4
+//iii. matA3x4 * matC4x3
+
+#include <iostream>
+#include <stdlib.h>
+#include <locale.h>
+#include <stdio.h>
+
+using namespace std;
+
+int main (){
+    setlocale (LC_ALL,"Portuguese");
+    //seção de declaração de variáveis
+    int matA[3][4];
+    int matB[3][4];
+    int matC[4][3];
+    int matABsoma[3][4];
+    int matABsub[3][4];
+    int matACmult[3][4];
+    int matmult;
+    int l=0;
+    int c=0;
+    int j=0;
+
+
+//seção de processamento
+
+    for (l=0;l<3;l++){
+        for(c=0;c<4;c++){
+        cout<<("Usuário, por favor, insira um número inteiro: ")<<endl;
+        cin >>matA[l][c];
+        cout<<("O número inserido pelo usuário foi: ")<<matA[l][c]<<(" ")<<endl;
+        }
+    }
+    system ("cls");
+    cout<<("Os valores armazenados na matriz matA, foram: \n")<<matA[0][0]<<(" , ")<<matA[0][1]<<(" , ")<<matA[0][2]<<(" , ")<<matA[0][3]<<(" , ")<<matA[1][0]<<(" , ")<<matA[1][1]<<(" , ")<<matA[1][2]<<(" , ")<<matA[1][3]<<(" , ")<<matA[2][0]<<(" , ")<<matA[2][1]<<(" , ")<<matA[2][2]<<(" , ")<<matA[2][3]<<(". \n")<<endl;
+    for (l=0;l<3;l++){
+        for(c=0;c<4;c++){
+        cout<<("Usuário, por favor, insira um número inteiro: ")<<endl;
+        cin >> matB[l][c];
+        cout<<("O número inserido pelo usuário foi: ")<<matB[l][c]<<(" ")<<endl;
+        }
+    }
+    system ("cls");
+    cout<<("Os valores armazenados na matriz matA, foram: ")<<matA[0][0]<<(" , ")<<matA[0][1]<<(" , ")<<matA[0][2]<<(" , ")<<matA[0][3]<<(" , ")<<matA[1][0]<<(" , ")<<matA[1][1]<<(" , ")<<matA[1][2]<<(" , ")<<matA[1][3]<<(" , ")<<matA[2][0]<<(" , ")<<matA[2][1]<<(" , ")<<matA[2][2]<<(" , ")<<matA[2][3]<<(". \n")<<endl;
+    cout<<("\nOs valores armazenados na matriz matB, foram: ")<<matB[0][0]<<(" , ")<<matB[0][1]<<(" , ")<<matB[0][2]<<(" , ")<<matB[0][3]<<(" , ")<<matB[1][0]<<(" , ")<<matB[1][1]<<(" , ")<<matB[1][2]<<(" , ")<<matB[1][3]<<(" , ")<<matB[2][0]<<(" , ")<<matB[2][1]<<(" , ")<<matB[2][2]<<(" , ")<<matB[2][3]<<(". \n")<<endl;
+    for (l=0;l<4;l++){
+        for (c=0;c<3;c++){
+        cout<<("Usuário, por favor, insira um número inteiro: ")<<endl;
+        cin >> matC[l][c];
+        cout<<("O número inserido pelo usuário foi: \n")<<matC[l][c]<<(" ")<<endl;
+        }
+    }
+    system ("cls");
+    cout<<("Os valores armazenados na matriz matA, foram: \n")<<matA[0][0]<<(" , ")<<matA[0][1]<<(" , ")<<matA[0][2]<<(" , ")<<matA[0][3]<<(" , ")<<matA[1][0]<<(" , ")<<matA[1][1]<<(" , ")<<matA[1][2]<<(" , ")<<matA[1][3]<<(" , ")<<matA[2][0]<<(" , ")<<matA[2][1]<<(" , ")<<matA[2][2]<<(" , ")<<matA[2][3]<<(". \n")<<endl;
+    cout<<("\nOs valores armazenados na matriz matB, foram: \n")<<matB[0][0]<<(" , ")<<matB[0][1]<<(" , ")<<matB[0][2]<<(" , ")<<matB[0][3]<<(" , ")<<matB[1][0]<<(" , ")<<matB[1][1]<<(" , ")<<matB[1][2]<<(" , ")<<matB[1][3]<<(" , ")<<matB[2][0]<<(" , ")<<matB[2][1]<<(" , ")<<matB[2][2]<<(" , ")<<matB[2][3]<<(". \n")<<endl;
+
+    cout<<("\nOs valores armazenados na matriz matC, foram: \n")<<matC[0][0]<<(" , ")<<matC[0][1]<<(" , ")<<matC[0][2]<<(" , ")<<matC[1][0]<<(" , ")<<matC[1][1]<<(" , ")<<matC[1][2]<<(" , ")<<matC[2][0]<<(" , ")<<matC[2][1]<<(" , ")<<matC[2][2]<<(" , ")<<matC[3][0]<<(" , ")<<matC[3][1]<<(" , ")<<matC[3][2]<<(". \n")<<endl;
+    cout<<("\n")<<endl;
+    for (l=0;l<3;l++){
+        for (c=0;c<4;c++){
+            (matABsoma[l][c]=matA[l][c]+matB[l][c]);
+            cout <<("Usuário, a soma entre as matrizes A e B é de: ")<<matABsoma[l][c]<<(" na linha ")<<l<<(" , coluna ")<<c<<(" ")<<endl;
+    }
+            }
+    cout<<("\n")<<endl;
+    for (l=0;l<3;l++) {
+        for (c=0;c<4;c++){
+            (matABsub[l][c]=matA[l][c]-matB[l][c]);
+            cout <<("Usuário, a subtração entre as matrizes A e B é de: ")<<matABsub[l][c]<<(" na linha ")<<l<<(" , coluna ")<<c<<(" ")<<endl;
+
+        }
+    }
+    cout<<("\n")<<endl;
+    for (l=0;l<3;l++)  {
+            for (c=0;c<4;c++){
+                for(j=0;j<3;j++){
+                    matmult=matmult+(matA[l][j]*matC[j][c]);
+            }
+            matACmult[l][c]=matmult;
+            cout <<("Usuário, a multiplicação entre as matrizes A e C é de: ")<<matACmult[l][c]<<(" na linha ")<<l<<(" , coluna ")<<c<<(" ")<<endl;
+        }
+
+    }
+    system ("PAUSE");
+    return 0;
+}
+
+
