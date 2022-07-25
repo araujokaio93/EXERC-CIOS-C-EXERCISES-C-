@@ -1,0 +1,49 @@
+//Faça um programa que leia e armazene os dados de um vetor de 10 posições de números inteiros. Em segui -
+//da leia também dois valores X e Y quaisquer, correspondentes a dois índices de posições do vetor. Ao final
+//seu programa deverá escrever a soma dos valores encontrados nas respectivas posições X e Y.
+
+#include <iostream>
+#include <stdlib.h>
+#include <vector>
+#include <locale.h>
+using namespace std;
+
+int main (){
+    setlocale (LC_ALL,"");
+    //seção de declaração de variáveis
+    int vetNum[10];
+    int i=0;
+    int x=0;
+    int y=0;
+    int somaxy=0;
+
+    //seção de processamento
+    for (i=0;i<10;i++){
+        cout <<("Por favor, usuário, insira um valor númerico inteiro para o vetor. \n")<<("obs:Usuário, se atenha à valores pertecentes ao conjunto dos números inteiros ou programa irá finalizar a execução. ")<<endl;
+        cin >> vetNum[i];
+        }
+    system ("cls");
+    cout <<("\nUsuário, os valores inseridos no vetor foram: ")<< vetNum[0] << (" , ") <<vetNum[1]<< (" , ") << vetNum[2] << (" , ") << vetNum[3]<< (" , ") << vetNum[4]<< (" , ") << vetNum[5]<< (" , ") << vetNum[6]<< (" , ") << vetNum[7]<< (" , ") << vetNum[8]<< (" , ") << vetNum[9]<< (" \n")<<endl;
+    cout <<("Por favor, Usuário, insira um número para a varíavel 'x', referente ao respectivo índice da posição á qual deseja operar. obs(se atenha aos valores de 0 e 9 referentes as respectivas posições do vetor.")<<endl;
+    cin>>x;
+    while ((x>9) or (x<0)){
+        cout << ("\nUsuário, reinsira valores válidos para o índice de acesso ao vetor. obs(se atenha aos valores de 0 e 9 referentes as respectivas posições do vetor.")<<endl;
+        cin >> x;
+    }
+    cout <<("\nO Usuário, o número atribuído ao índice referente à posição de pesquisa no vetor dado à 'x' é: ")<<x<<("")<<endl;
+    cout <<("\nPor favor, Usuário, insira um número para a varíavel 'y', referente ao respectivo índice da posição á qual deseja operar. obs(se atenha aos valores de 0 e 9 referentes as respectivas posições do vetor.")<<endl;
+    cin >>y;
+    while ((y>9) or (y<0)){
+            cout << ("\nUsuário, reinsira valores válidos para o índice de acesso ao vetor. obs(se atenha aos valores de 0 e 9 referentes as respectivas posições do vetor.")<<endl;
+        cin >> y;
+        }
+    cout <<("\nO O Usuário, o número atribuído ao índice referente à posição de pesquisa no vetor dado à 'y' é: ")<<y<<(" ")<<endl;
+
+    //soma
+    cout <<("\nUsuário, o valor retornado pelo índice definido para 'x' na posição ")<<x<<(" do vetor é : ")<<vetNum[x]<<(" ")<<endl;
+    cout <<("Usuário, o valor retornado pelo índice definido para 'y' na posição ")<<y<<(" do vetor é: ")<<vetNum[y]<<(" ")<<endl;
+    somaxy=(vetNum[x]+vetNum[y]);
+    cout <<("Usuário, o valor da operação de soma com o valor das posições do vetor definidas por 'x' e 'y' são: ")<<somaxy<<endl;
+    system ("PAUSE");
+    return 0;
+}
