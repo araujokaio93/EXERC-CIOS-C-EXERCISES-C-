@@ -1,0 +1,131 @@
+//Seja uma matriz matA quadrada, de ordem 4, que armazena números inteiros. Faça o que se pede em cada
+//item a seguir: 
+//a. alimente os elementos da matriz;
+//b. calcule a soma dos elementos da primeira linha. Em seguida, mostre o resultado;
+//c. calcule a soma dos elementos da terceira coluna. Em seguida, mostre o resultado;
+//d. peça ao usuário para digitar um valor qualquer. Em seguida, percorra a matriz e mostre em quais po -
+//sições existe este valor. Do contrário, mostre a mensagem: “Valor não encontrado!”;
+//e. peça ao usuário para digitar a coordenada de uma posição da matriz. Em seguida, retorne o valor armazenado naquela posição;
+//f. calcule a soma dos elementos que estão acima da diagonal principal. Em seguida, mostre o resultado;
+//g. mostre os elementos da diagonal principal;
+//h. mostre os elementos da diagonal secundária;
+//i. calcule e mostre o somatório de todos os elementos da matriz;
+//j. gere e mostre a matriz transposta de A, sendo At
+// a permutação das linhas pelas colunas e vice-versa
+//(armazene na matriz matAt);
+//k. gere e mostre a matriz Identidade de A, sendo In = ( aij )n x n onde aij = 1 se i = j e aij = 0 se i <> j. Armazene-a na matriz matA
+
+#include <iostream>
+#include <stdlib.h>
+#include <locale.h>
+using namespace std;
+
+int main (){
+    setlocale (LC_ALL,"Portuguese");
+    //seção de declaração de varíaveis.
+    int matA[4][4];
+    int matAt[4][4];
+    int matAti[4][4];
+    int l=0;
+    int c=0;
+    double somamatl;
+    double somamatc;
+    double somatotal=0;
+    double somadiagp;
+    int j=0;
+    int k=0;
+    int busca;
+
+    //seção de processamento
+    //a)alimentando a matriz.
+    for (l=0;l<4;l++){
+        for (c=0;c<4;c++){
+            cout<<("Usuário, por favor insira valores para a matriz:  'obs:se limite á inserir números inteiros.' ")<<endl;
+            cin >>matA[l][c];
+            somatotal=somatotal+matA[l][c];
+        }
+    }
+    system ("cls");
+    for (l=0;l<4;l++){
+        for (c=0;c<4;c++){
+            cout<<("Usuário os valores inseridos na Matriz foram: ")<<matA[l][c]<<("")<<endl;
+        }
+    }
+    cout<<("\n")<<endl;
+    //b) soma dos elementos da primeira linha.
+    somamatl=(matA[0][0]+matA[0][1]+matA[0][2]+matA[0][3]);
+    cout<< ("Usuário, a soma dos elementos ")<<matA[0][0]<<(" + ")<<matA[0][1]<<(" + ")<<matA[0][2]<<(" + ")<<matA[0][3]<<(" da primeira linha da matriz é de: ")<<somamatl<<("")<<endl;
+    //c) soma dos elementos da terceira coluna.
+    somamatc=(matA[0][3]+matA[1][3]+matA[2][3]+matA[3][3]);
+    cout<< ("Usuário, a soma dos elementos ")<<matA[0][3]<<(" + ")<<matA[1][3]<<(" + ")<<matA[2][3]<<(" + ")<<matA[3][3]<<(" da terceira coluna da matriz é de: ")<<somamatc<<("")<<endl;
+    cout<< ("Usuário, a soma total de todos os elementos da matriz é de: ")<<somatotal<<("")<<endl;//i)soma de todos os elementos da matriz.
+    cout<< ("Usuário, os elementos da matriz posicionados na DIAGONAL PRINCIPAL, são: ")<<matA[0][0]<<(" , ")<<matA[1][1]<<(" , ")<<matA[2][2]<<(" , ")<<matA[3][3]<<("")<<endl;//g)elementos da diagonal principal.
+    cout<< ("Usuário, os elementos da matriz posicionados na DIAGONAL SECUNDÁRIA, são: ")<<matA[0][3]<<(" , ")<<matA[1][2]<<(" , ")<<matA[2][1]<<(" , ")<<matA[3][0]<<("")<<endl;//h)elementos da diagonal secundária.
+    somadiagp=(matA[0][1]+matA[0][2]+matA[0][3]+matA[1][2]+matA[1][3]+matA[2][3]);
+    cout<< ("Usuário, a soma dos elementos ")<<matA[0][1]<<(" + ")<<matA[0][2]<<(" + ")<<matA[0][3]<<(" + ")<<matA[1][2]<<(" + ")<<matA[1][3]<<(" + ")<<matA[2][3]<<(" , acima da diagonal principal é de: ")<<somadiagp<<("")<<endl;//f)soma dos elementos acima da diagonal principal.
+    cout<<("\n")<<endl;
+    for (j=0;j<4;j++){
+        for (k=0;k<4;k++){
+            cout<<("Usuário, por favor, insira os valores referentes ao índice de acesso á Matriz, para as linhas: obs: Usuário, se limite á valores entre 0 e 4, referentes ás posições da matriz")<<endl;
+            cin >>l;
+            while((l<0) or (l>3)){
+                    cout<<("\nUsuário, você não inseriu valores válidos para o índice de acessoa ás linhas da Matriz, reinsira valores válidos ")<<endl;
+                    cin>> l;
+                }
+            cout<<("Usuário, por favor, insira os valores referentes ao índice de acesso á Matriz, para as colunas: Usuário, se limite á valores entre 0 e 4, referentes ás posições da matriz")<<endl;
+            cin>>c;
+            while((c<0) or (c>3)){
+                    cout<<("\nUsuário, você não inseriu valores válidos para o índice de acesso ás colunas da Matriz, reinsira valores válidos ")<<endl;
+                    cin>>c;
+                }
+            cout<<("\nUsuário, o valor armazenado na posição á qual foi pesquisada é de ")<<matA[l][c]<<(" , posicionada na linha ")<<l<<(" , coluna ")<<c<<(" \n\n")<<endl;//e)Valor do elementos da Matriz, pesquisado pelo usuário.
+        }
+    }
+    system ("cls");
+    cout <<("Usuário, por favor, insira um valor para se buscar na Matriz")<<endl;
+    cin >>busca;
+    for (l=0;l<4;l++){
+        for (c=0;c<4;c++){
+            if (busca==matA[l][c]){
+                cout<<("Usuário, o presente valor pesquisado na Matriz foi ENCONTRADO, sendo este de: ")<<matA[l][c]<<(" , posicionado na linha ")<<l<<(" , coluna ")<<c<<("")<<endl;//d)Usuário procurando elementos dentro da Matriz.
+            }
+            else {
+                cout <<("Usuário, o valor pesquisado NÃO FOI ENCONTRADO na Matriz, nas posições: ")<<l<<(" , ")<<c<<(" , coluna. ")<<endl;
+            }
+        }
+    }
+    cout<<("\n")<<endl;
+    for (l=0;l<4;l++){
+        for (c=0;c<4;c++){
+            matAt[c][l]=matA[l][c];
+            cout <<("Usuário,os valores inseridos na Matriz Original são: ")<<matA[l][c]<<(" nas posições de linha ")<<l<<(" , coluna ")<<c<<("")<<endl;
+        }
+    }
+    cout<<("\n\n")<<endl;
+    for (l=0;l<4;l++){
+        for (c=0;c<4;c++){
+            cout<<("Usuário, a Matriz Transposta de MatA, contém os valores: ")<<matAt[l][c]<<(" nas posições de linha ")<<l<<(" , coluna ")<<c<<("")<<endl;
+        }//j)MatA transposta, MatAt.
+    }
+    cout<<("\n\n")<<endl;
+    for(l=0;l<4;l++){
+        for(c=0;c<4;c++){
+           if (l==c){
+            matA[l][c]=1;
+            matAti[l][c]=matA[l][c];
+           }
+           else {
+            matA[l][c]=0;
+            matAti[l][c]=matA[l][c];
+           }
+        }
+    }
+    for (l=0;l<4;l++){
+            for (c=0;c<4;c++){
+            cout<<("Usuário a Matriz identidade de A, Matriz At1 é: ")<<matAti[l][c]<<(" , posicionada na linha ")<<l<<(" coluna")<<c<<("")<<endl;
+        }
+    }
+    system ("PAUSE");
+    return 0;
+}
+
