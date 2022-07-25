@@ -1,0 +1,69 @@
+// Construa um algoritmo que realize o que se pede a seguir:
+//a. Ler os valores de 5 números e armazená-los num vetor chamado vetNum1;
+//b. Ler os valores de 5 números e armazená-los num vetor chamado vetNum2;
+//c. Realizar os cálculos abaixo e armazenar os resultados em vários vetores que você deverá declarar e
+//nomear com nomes sugestivos, conforme a operação realizada:
+//i. Multiplicar os elementos dos vetores vetNum1 e vetNum2 e armazenar o resultado num outro vetor chamado vetNum3;
+//ii. Somar os elementos dos vetores vetNum1 e vetNum2 e armazenar o resultado num outro vetor
+//de nome vetNum4;
+//iii. Armazenar os valores do vetNum1 em um vetor vetNum5, de trás para frente, isto é, em índices
+//invertidos;
+
+#include <iostream>
+#include <stdlib.h>
+#include <vector>
+#include <locale.h>
+using namespace std;
+
+int main(){
+    setlocale(LC_ALL,"Portuguese");
+    //seção de declaração de variaveis
+    int i=0;
+    int f=0;
+    double somavet=0;
+    double somavet2=0;
+    double multivet=0;
+    double multivet2=0;
+    double vetNum1[5];
+    double vetNum2[5];
+    double vetNum5[5];
+
+    //seção de processamento
+
+    for (i=0;i<5;i++){
+        cout <<("Usuário, por favor, insira os valores para o Vetor número 1:")<<endl;
+        cin >> vetNum1[i];
+        multivet=(vetNum1[0]*vetNum1[1]*vetNum1[2]*vetNum1[3]*vetNum1[4]);
+        somavet= (vetNum1[0]+vetNum1[1]+vetNum1[2]+vetNum1[3]+vetNum1[4]);
+   }
+   system ("cls");
+   cout <<("\nUsuário, os valores inseridos no Vetor número 1, foram: ") << vetNum1[0] <<(" , ")<< vetNum1[1] << (" , ")<< vetNum1[2] << (" , ")<< vetNum1[3] << (" , ")<< vetNum1[4] <<(" , ")<< endl;
+   cout << ("Usuário a multiplicação dos valores do Vetor número 1 é de: ") <<multivet<<("")<<endl;
+   cout << ("Usuário a soma dos valores do Vetor número 1 é de: ") <<somavet<<("\n")<<endl;
+   for (i=0;i<5;i++){
+        cout <<("Usuário, por favor, insira os valores para o Vetor número 2:")<<endl;
+        cin >> vetNum2[i];
+        multivet2=(vetNum2[0]*vetNum2[1]*vetNum2[2]*vetNum2[3]*vetNum2[4]);
+        somavet2=(vetNum2[0]+vetNum2[1]+vetNum2[2]+vetNum2[3]+vetNum2[4]);
+   }
+   cout <<("\nUsuário, os valores inseridos no Vetor número 2, foram: ") << vetNum2[0] <<(" , ")<< vetNum2[1] << (" , ")<< vetNum2[2] << (" , ")<< vetNum2 [3] << (" , ")<< vetNum2[4] <<(" , ")<< endl;
+   cout << ("Usuário a multiplicação dos valores do Vetor número 2 é de: ") <<multivet2<<("")<<endl;
+   cout << ("Usuário a soma dos valores do Vetor número 1 é de: ") <<somavet2<<("\n")<<endl;
+
+    //seção de processamento entre os vetores
+
+   double vetNum3[1];
+   vetNum3[i]=(multivet*multivet2);
+   cout << ("Usuário, o resultado da multiplicação dos vetores 1 e 2, é o valor do Vetor 3, sendo este de: ")<<vetNum3[i]<<("")<<endl;
+   double vetNum4[1];
+   vetNum4[i]=(somavet+somavet2);
+   cout << ("Usuário, o resultado da soma dos vetores 1 e 2, é o valor do Vetor 4, sendo estes de: ")<<vetNum4[i]<<("\n")<<endl;
+   for (i=0,f=4;i<5;i++,f--){
+        vetNum5[f]=vetNum1[i];
+   }
+   cout << ("Usuário, os valores contidos no Vetor número 5, são o inverso do Vetor de número 1, sendo estes de : ")<<vetNum5[0]<<(" , ")<<vetNum5[1]<<(" , ")<<vetNum5[2]<<(" , ")<<vetNum5[3]<<(" , ")<<vetNum5[4]<<(" \n")<<endl;
+   system("PAUSE");
+   return 0;
+}
+
+
