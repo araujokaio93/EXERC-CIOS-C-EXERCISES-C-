@@ -1,0 +1,47 @@
+A partir do exercício anterior, salve-o com o nome de questao2.por e altere-o de modo que ele também permita:
+a. O usuário informar o índice de uma determinada posição e o algoritmo retornar o valor armazenado
+nela;
+b. Caso não existe nenhum valor diferente de 0 (zero) no índice informado, o sistema deve retornar a
+seguinte mensagem: “Nenhum valor válido foi inserido”
+
+#include <iostream>
+#include <stdlib.h>
+#include <locale.h>
+#include <vector>
+using namespace std;
+
+int main (){
+    setlocale(LC_ALL,"");
+    double numVet[20];
+    int contnum=0;
+    int i=0;
+    for (i=0;i<20;i++){
+            cout << ("Por favor, Usuário, insira um número ? ") << endl;
+            cin >> numVet[i];
+        if ((numVet[i]>=100) and (numVet[i]<=200)){
+                contnum++;
+          }
+    }
+    if (contnum == 0){
+            cout << ("Usuário, não foram digitados nenhum número pertecente ao intervalo entre 100 e 200. \n")<< endl;
+    }
+    else{
+            cout << ("Usuário, foram inseridos ")<< contnum <<(" números pertecentes ao intervalo entre 100 e 200 \n") << endl;
+    }
+    cout << ("Usuário, por favor, informe o número do índice referente á posição do vetor á qual deseja consultar?") << endl;
+    cin >> i;
+    while ((i<0) or (i>=20)){
+            cout << ("Usúario, por favor, informe valores válidos de pesquisa para o índice. 'obs:insira valores entre 0 e 19, referentes as respectivas posições do vetor.' ")<< endl;
+            cin >> i;
+    }
+    if (numVet[i] != 0){
+            cout << ("\nUsúario, a posição referente ao índice do vetor consultado possuí o valor de: ")<< numVet[i] <<(" ocupando a posição de número ") << i <<(" no vetor \n")<< endl;
+    }
+    else{
+            cout << ("\nUsuário, para efeitos de pesquisa do valor do índice do presente vetor, não foi encontrado valor diferente de zero, logo NENHUM VALOR VÁLIDO FOI INSERIDO NA POSIÇÃO DO VETOR REFERENTE AO ÍNDICE PESQUISADO. ") << endl;
+    }
+    system("PAUSE");
+    return 0;
+}
+
+
