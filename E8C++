@@ -1,0 +1,107 @@
+//Faça um algoritmo que permita ler e armazenar em vetores o nome, o sexo e a idade de um grupo de 10 pessoas. Em seguida, calcule e mostre o que é pedido em cada item a seguir:
+//a. calcular e retornar a média das idades;
+//b. calcular e retornar quantas pessoas são de cada sexo;
+//c. informar o nome de uma pessoa e retornar todos os seus dados;
+//d. mostrar o nome de todas as pessoas do sexo masculino;
+//e. retornar os dados da pessoa mais idosa;
+//f. retornar os dados da pessoa mais jovem.
+
+#include <iostream>
+#include <stdlib.h>
+#include <locale.h>
+#include <vector>
+#include <string.h>
+using namespace std;
+
+int main (){
+    setlocale (LC_ALL,"Portuguese");
+
+    //seção de declaração de variáveis
+
+
+    string vetNome[10];
+    char vetSex[10];
+    int vetIdade[10];
+    int i=0;//índice
+    int k=0;//índice
+    double somaid=0;
+    double mediaid=0;
+    double maisvelha=-1;
+    double maisnova=130;
+    int contm=0;
+    int contf=0;
+    int contp=0;
+
+    //seção de processamento
+
+
+    for (i=0;i<10;i++){
+        cout <<("Usuário, por favor, insira um nome : ")<<endl;
+        cin >> vetNome[i];
+        cout << ("\nO nome inserido no vetor foi: ")<<vetNome[i]<<("\n")<<endl;
+    }
+    system ("cls");
+    for (i=0;i<10;i++){
+        cout <<("Usuário, por favor, informe o Sexo de cada índivíduo: ")<<endl;
+        cin >>vetSex[i];
+        while ((vetSex[i] != 'M') and (vetSex[i] !='m') and (vetSex[i] !='F') and (vetSex[i] !='f')) {
+            cout <<("\nUsuário, por favor, se limite aos caracteres 'm','M','f','F' para informar o sexo do índividuo\n")<<endl;
+            cin >> vetSex[i];
+        }
+        if ((vetSex[i]== 'M') or (vetSex[i]== 'm')){
+            cout<<("Usuário, o indivíduo informado é do Sexo Masculino. \n")<<endl;
+            contm++;
+            }
+        else {
+            cout<<("Usuário, o indivíduo informado é do Sexo Feminino. \n")<<endl;
+            contf++;
+        }
+    }
+    system ("cls");
+    cout <<("Usuário, o sexo dos indíviduos inseridos no vetor é de: ")<<contm<<(" pessoas do SEXO MASCULINO e ")<<contf<<(" pessoas do SEXO FEMININO. \n")<<endl;
+    for (i=0;i<10;i++){
+        if ((vetSex[i]=='m') or (vetSex[i]=='M')){
+            cout<<("Usuário, o índividuo do SEXO ")<<vetSex[i]<<(" MASCULINO, localizado dentro do vetor na posição ")<<i<<(" tem o nome de: ")<<vetNome[i]<<(" \n")<<endl;
+        }
+    }
+    for (i=0;i<10;i++){
+        cout<<("\nUsuário, por favor insira a idade de cada indivíduo: ")<<endl;
+        cin >>vetIdade[i];
+        if (vetIdade[i]<maisnova){
+            maisnova=vetIdade[i] ;
+            }
+        if (vetIdade[i]>maisvelha){
+            maisvelha=vetIdade[i] ;
+        }
+    cout<<("Usuário, a idade inserida foi: ")<<vetIdade[i]<<(" \n")<<endl;
+    contp++;
+    }
+
+    somaid=(vetIdade[0]+vetIdade[1]+vetIdade[2]+vetIdade[3]+vetIdade[4]+vetIdade[5]+vetIdade[6]+vetIdade[7]+vetIdade[8]+vetIdade[9]);
+    mediaid=(somaid/contp);
+    system ("cls");
+    cout<<("\nUsuário, a soma das idades de todos os individuos é de: ")<<somaid<<(" anos e a MÉDIA de todas as idades é de : ")<<mediaid<<("\n")<<endl;
+    cout<<("Usuário, a idade mais velha registrada no vetor é de: ")<<maisvelha<<( " anos e a mais nova é de: ")<<maisnova<<(" anos \n")<<endl;
+    for (i=0;i<10;i++){
+        if (vetIdade[i]==maisvelha){
+            cout<<("\nUsuário, os dados registrados da pessoa mais velha são:\n Nome: ")<<vetNome[i]<<(" \n idade: ")<<maisvelha<<(" \n sexo: ")<<vetSex[i]<<("\n ")<<endl;
+       }
+    }
+    for (i=0;i<10;i++){
+        if (vetIdade[i]==maisnova){
+            cout<<("\nUsuário, os dados registrados da pessoa mais nova são:\n Nome: ")<<vetNome[i]<<(" \n idade: ")<<maisnova<<(" \n sexo: ")<<vetSex[i]<<("\n ")<<endl;
+        }
+    }
+    for (i=0;i<10;i++){
+        cout<<("\nUsuário, informe o índice referente á posição nos vetores á qual deseja pesquisar: obs: se atenha aos valores para o índice entre 0 e 9.")<<endl;
+        cin>>k;
+        while ((k<0) or (k>9)){
+            cout <<("\nUsuário, para fins de pesquisa nos vetores, insira valores válidos para o índice \n")<<endl;
+            cin >>k;
+        }
+    cout<<("\nUsuário, os dados registrados no índice inserido são: \nNome: ")<<vetNome[k]<<(" \nIdade: ")<<vetIdade[k]<<(" \nSexo: ")<<vetSex[k]<<(" \n")<<endl;
+    }
+    system ("PAUSE");
+    return 0;
+}
+
