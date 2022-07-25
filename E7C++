@@ -1,0 +1,49 @@
+//Faça um programa que leia 10 nomes e armazene-os em um vetor. Em seguida, faça o que se pede:
+//a. pedir ao usuário para digitar um nome. Procurar este nome no vetor e retornar a(s) posição(ões)
+//onde encontrou; Caso não encontre, retorne “Nome não encontrado!”;
+//b. pedir ao usuário para digitar o valor de um índice do vetor e retornar o nome armazenado naquela
+//posição
+
+#include <iostream>
+#include <stdlib.h>
+#include <string>
+#include <locale.h>
+#include <vector>
+using namespace std;
+
+int main (){
+    setlocale (LC_ALL,"Portuguese");
+    //seção de declaração de váriaveis
+    string vetNome[10];
+    int i=0;
+    string nome;
+    //seção de processamento
+    for (i=0;i<10;i++){
+        cout <<("Por favor, usuário, insira os nomes á serem armazenados no vetor : ")<<endl;
+        cin >> vetNome[i];
+    }
+    system ("cls");
+    cout <<("Usuário, os nomes inseridos no vetor foram: ")<<vetNome[0]<<(" , ")<<vetNome[1]<<(" , ")<<vetNome[2]<<(" , ")<<vetNome[3]<<(" , ")<<vetNome[4]<<(" , ")<<vetNome[5]<<(" , ")<<vetNome[6]<<(" , ")<<vetNome[7]<<(" , ")<<vetNome[8]<<(" , ")<<vetNome[9]<<("\n")<<endl;
+    cout << ("\nUsuário, por favor, digite o nome que deseja procurar no vetor : ")<<endl;
+    cin >> nome;
+    for (i=0;i<10;i++){
+        if (nome==vetNome[i]){
+            cout<< ("Usuário, o nome inserido foi: ")<< nome <<(" , estando este presente no vetor na posição de número : ")<< i <<("")<<endl;
+        }
+        else{
+            cout << ("Usuário, o nome inserido NÃO FOI ENCONTRADO no vetor na posição de número : ")<<i<<("")<<endl;
+        }
+    }
+    for (i=0;i<10;i++){
+        cout <<("\n\nUsuário, informe o número referente ao índice da posição do vetor á qual deseja consultar :")<<endl;
+        cin >>i;
+            while ((i<0) or (i>10)){
+                cout <<("\nUsuário, insira valores válidos ao índice para à pesquisa no vetor: ")<<endl;
+                cin >>i;
+        }
+        cout<<("Usuário, o presente índice inserido se refere à posição de número: ")<<i<<(" do vetor, contendo o nome: ")<<vetNome[i]<<("\n")<<endl;
+    }
+    system ("PAUSE");
+    return 0;
+}
+
