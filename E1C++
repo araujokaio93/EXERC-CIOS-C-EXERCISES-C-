@@ -1,0 +1,3 @@
+//Faça um algoritmo que leia o valor de 20 números e armazene-os em um vetor. Em seguida, percorra o vetor
+//informe quantos números entre 100 e 200 foram digitados. Se nenhum número neste intervalo foi
+//digitado, informe: “Nenhum número entre 100 e 200”.
